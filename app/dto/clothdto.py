@@ -1,9 +1,15 @@
-from pydantic import BaseModel
+from pydantic import BaseModel,Field, validator,field_validator
 
 class Cloth(BaseModel):
-    type:int
+    status:str
+    openid:str
+
+class ClothItem(BaseModel):
+    type:int 
     quantity:int
+
     
+
 class PostCloth(BaseModel):
-    cloth:list[Cloth]
+    cloth:list[ClothItem]
     openid:str
